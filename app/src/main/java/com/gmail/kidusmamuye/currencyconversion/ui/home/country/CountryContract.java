@@ -15,7 +15,7 @@ public interface CountryContract {
     }
 
     interface Presenter extends BasePresenter<View>{
-        void onCountryClicked();
+        void onCountryClicked(int position);
         void loadCountries();
     }
 }

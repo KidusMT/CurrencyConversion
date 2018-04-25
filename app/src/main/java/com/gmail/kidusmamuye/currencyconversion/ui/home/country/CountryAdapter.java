@@ -8,9 +8,8 @@ import android.view.ViewGroup;
 import android.widget.Filter;
 import android.widget.Filterable;
 
+import com.gmail.kidusmamuye.currencyconversion.R;
 import com.gmail.kidusmamuye.currencyconversion.model.Country;
-import com.kidusmt.shemetacustomerapp.R;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,14 +31,14 @@ public class CountryAdapter extends RecyclerView.Adapter<CountryViewHolder> impl
     @NonNull
     @Override
     public CountryViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_history, parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_request_group, parent,false);
         return new CountryViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull CountryViewHolder holder, int position) {
         holder.update(requests);
-        holder.itemView.setOnClickListener(v -> presenter.onHistoryClicked(position));
+        holder.itemView.setOnClickListener(v -> presenter.onCountryClicked(position));
     }
 
     public void update(List<Country> data) {

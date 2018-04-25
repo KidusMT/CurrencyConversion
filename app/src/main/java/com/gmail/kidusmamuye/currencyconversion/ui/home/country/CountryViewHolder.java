@@ -5,8 +5,9 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.kidusmt.shemetacustomerapp.R;
-import com.kidusmt.shemetacustomerapp.data.model.Request;
+import com.gmail.kidusmamuye.currencyconversion.R;
+import com.gmail.kidusmamuye.currencyconversion.data.model.Currency;
+import com.gmail.kidusmamuye.currencyconversion.model.Country;
 
 import java.util.List;
 
@@ -22,19 +23,17 @@ public class CountryViewHolder extends RecyclerView.ViewHolder {
     private TextView requestDate;
     public CountryViewHolder(View itemView) {
         super(itemView);
-        requestImage = itemView.findViewById(R.id.iv_history_product);
-        requestTitle = itemView.findViewById(R.id.tv_history_product_name);
-        requestStatus = itemView.findViewById(R.id.tv_history_status);
-        requestDate = itemView.findViewById(R.id.tv_history_date);
+        requestImage = itemView.findViewById(R.id.country_flag);
+        requestTitle = itemView.findViewById(R.id.country_name);
+        requestStatus = itemView.findViewById(R.id.currency_name);
+        requestDate = itemView.findViewById(R.id.currency_symbol);
     }
 
-    public void update(List<Request> requests) {
-        Request request = requests.get(getAdapterPosition());
-
-        //TODO should implement the date formatting in better way for display as the UI design
-        requestImage.setImageResource(R.drawable.profile);
-        requestTitle.setText(String.valueOf(request.getStatus()));
-        requestStatus.setText(String.valueOf(request.getStatus()));
-        requestDate.setText(String.valueOf(request.getStatus()));
+    public void update(List<Country> countries) {
+        Country country = countries.get(getAdapterPosition());
+        requestImage.setImageResource(R.drawable.ic_launcher_background);
+        requestTitle.setText(String.valueOf(country.getResults()));
+        requestStatus.setText(String.valueOf(country.getResults()));
+        requestDate.setText(String.valueOf(country.getResults()));
     }
 }
