@@ -10,7 +10,6 @@ import com.gmail.kidusmamuye.currencyconversion.base.view.BaseFragment;
 
 public class FragmentCountry extends BaseFragment {
 
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +22,4 @@ public class FragmentCountry extends BaseFragment {
 
         return v;
     }
-
-
 }

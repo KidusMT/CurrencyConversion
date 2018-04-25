@@ -1,9 +1,8 @@
 package com.gmail.kidusmamuye.currencyconversion.ui.home;
 
+import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.gmail.kidusmamuye.currencyconversion.R;
@@ -21,8 +20,6 @@ public class MainActivity extends BaseActivity {
     @BindView(R.id.home_viewpager)
     ViewPager viewPager;
 
-    //TODO should show the back arrow for returning to the previous screen
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +27,7 @@ public class MainActivity extends BaseActivity {
         ButterKnife.bind(this);
 
         if (getSupportActionBar() != null) {
+            getSupportActionBar().setTitle("Currency Converter");
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
 
@@ -41,8 +39,7 @@ public class MainActivity extends BaseActivity {
     private void setupViewPager(ViewPager viewPager) {
         HomeViewPager adapter = new HomeViewPager(getSupportFragmentManager());
         adapter.addFragment(new FragmentConverter(), "Converter");
-        adapter.addFragment(new FragmentCountry(), "Home");
-
+        adapter.addFragment(new FragmentCountry(), "Country");
         viewPager.setAdapter(adapter);
     }
 

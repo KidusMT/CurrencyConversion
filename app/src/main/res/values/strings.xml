@@ -2,4 +2,6 @@
     <string name="app_name">CurrencyConversion</string>
     <string name="from">from</string>
     <string name="to">to</string>
+    <string name="btn_converter">convert</string>
+    <string name="amount">amount</string>
 </resources>

@@ -1,9 +1,15 @@
 package com.gmail.kidusmamuye.currencyconversion.util;
 
+import android.app.Activity;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.view.View;
+import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
+
+import com.gmail.kidusmamuye.currencyconversion.App;
 
 import timber.log.Timber;
 
@@ -60,5 +66,15 @@ public class Utils {
         ConnectivityManager connectivityManager = (ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo info = connectivityManager.getActiveNetworkInfo();
         return info != null && info.isConnected();
+    }
+
+
+    public static void hideKeyboard(Activity activity) {
+        activity.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+        InputMethodManager inputMethodManager = (InputMethodManager) activity.getSystemService(Activity.INPUT_METHOD_SERVICE);
+        View cur_focus = activity.getCurrentFocus();
+        if (cur_focus != null) {
+            inputMethodManager.hideSoftInputFromWindow(cur_focus.getWindowToken(), 0);
+        }
     }
 }
